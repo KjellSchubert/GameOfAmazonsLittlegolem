@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+
+  "name": "Game of Amazons (littlegolem.net)",
+  "description": "Counts squares for Game of Amazons on littlegolem.net and allows for making exploratory moves.",
+  "version": "1.0",
+
+  "content_scripts": [
+    {
+      "matches": ["http://www.littlegolem.net/jsp/game/*"],
+      "js": ["jquery-1.9.1.min.js", "underscore-1.4.4.min.js", "gameOfAmazons.js"]
+    }
+  ]
+
+  /* need nothing but the content_scripts, not making Ajax requests, not making Chrom
+   * extension API calls
+  "permissions": [
+    //"https://littlegolem.net/"
+  ],
+  */
+
+  /* neither browser_action nor page_action is a good fit: we only want to execute the
+   * content_scripts on the matching pages & modify the page's DOM. Dont want action
+   * icons in the Chrome address bar, instead buttons for actions (like 'start making 
+   * exploratory moves') and undo buttons for moves are injected into the page HTML directly.
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  }
+  */
+
+}

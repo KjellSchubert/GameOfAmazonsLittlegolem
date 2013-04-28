@@ -1,0 +1,12 @@
+<project name="GameOfAmazonsLittleGolem" default="dist" basedir=".">
+    <description>
+        builds the zip for Chrome extension Game of Amazons (littlegolem.net)
+    </description>
+    <target name="dist">
+       <get src="http://underscorejs.org/underscore-min.js" dest="underscore-1.4.4.min.js" skipexisting="true"/>
+       <get src="http://code.jquery.com/jquery-1.9.1.min.js" dest="jquery-1.9.1.min.js" skipexisting="true"/>
+       <zip destfile="GameOfAmazons.zip">
+          <zipfileset dir="." includes="manifest.json,gameOfAmazons.js,jquery-1.9.1.min.js,underscore-1.4.4.min.js"  />
+       </zip>
+    </target>
+</project>
